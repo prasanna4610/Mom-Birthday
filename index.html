@@ -35,13 +35,6 @@ body {
 
 .active { display: flex; }
 
-/* POEM PAGE SCROLL */
-#page3 {
-    overflow: auto;
-    justify-content: flex-start;
-    padding-top: 0;
-}
-
 h1 { font-size: 3em; }
 h2 { font-size: 2em; }
 
@@ -88,7 +81,7 @@ button {
     box-shadow: 0 0 20px pink;
 }
 
-/* SURPRISE */
+/* SLIDESHOW */
 .surprise-container {
     display: flex;
     justify-content: center;
@@ -129,7 +122,7 @@ button {
     }
 }
 
-/* PHONE RESPONSIVE */
+/* PHONE RESPONSIVE FOR ALL PAGES */
 @media (max-width: 480px) {
     h1 { font-size: 2em; }
     h2 { font-size: 1.4em; }
@@ -163,23 +156,19 @@ button {
         margin-bottom: 15px;
     }
 
-    /* Surprise page slideshow images */
-    .surprise-container .slideshow {
+    .left-side .slideshow img {
         width: 100%;
-        max-width: 300px;
+        max-width: 250px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 0 25px deeppink;
         margin: 0 auto;
     }
 
-    .surprise-container .slideshow img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: 20px;
-        box-shadow: 0 0 25px deeppink;
-    }
-
-    .right-side {
-        margin-top: 15px;
+    .right-side p {
+        font-size: 1.2em;
+        line-height: 1.5;
+        padding: 0 10px;
     }
 }
 </style>
@@ -246,7 +235,7 @@ button {
     <button onclick="goHome()">⬅ Back</button>
 </div>
 
-<!-- SURPRISE PAGE -->
+<!-- SURPRISE PAGE (PHONE FRIENDLY) -->
 <div class="page" id="page6">
     <h2>💖 Our Beautiful Amma 💖</h2>
 
@@ -343,11 +332,12 @@ function typePoem() {
 
 /* SLIDESHOW */
 const images = [
-  "mom.jpg",   // if your file is actually 'Mom.jpg'
+  "mom.jpg",
   "mom1.jpeg",
   "mom2.jpg",
-  "mom3.jpg",
-  "mom4.jpg",
+  "mom 2.jpg",
+  "Mom3.jpg",
+  "Mom4.jpg",
   "mom5.jpeg",
   "mom6.jpg",
   "mom7.jpg",
@@ -390,4 +380,3 @@ function stopMusic() {
 
 </body>
 </html>
-
