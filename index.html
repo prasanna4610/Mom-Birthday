@@ -35,13 +35,13 @@ body {
 
 /* POEM PAGE SCROLL */
 #page3 {
-    overflow: auto;   /* remove scroll */
-    justify-content: flex-start;  /* center vertically */
+    overflow: auto;
+    justify-content: flex-start;
     padding-top: 0;
 }
 
-h1 { font-size: 3em; }
-h2 { font-size: 2em; }
+h1 { font-size: 3em; margin:0 0 10px 0; }
+h2 { font-size: 2em; margin:0 0 15px 0; }
 
 button {
     padding: 15px 35px;
@@ -86,7 +86,7 @@ button {
     box-shadow: 0 0 20px pink;
 }
 
-/* SURPRISE PAGE */
+/* SURPRISE */
 .surprise-container {
     display: flex;
     justify-content: center;
@@ -116,78 +116,44 @@ button {
     transition: opacity 0.5s ease-in-out;
 }
 
-/* PHONE RESPONSIVE */
+/* PHONE RESPONSIVE FOR ALL PAGES */
 @media (max-width: 480px) {
-    h1 { font-size: 2em; }
-    h2 { font-size: 1.4em; }
+    body, .page { padding: 20px 10px 50px; }
+
+    h1 { font-size: 2em; margin-bottom:8px; }
+    h2 { font-size: 1.4em; margin-bottom:10px; }
 
     button {
         padding: 10px 20px;
         font-size: 1em;
-        margin: 10px;
+        margin: 8px;
     }
 
-    #momImage {
-        width: 120px;
-        margin-bottom: 15px;
-    }
+    #momImage { width: 120px; margin-bottom: 15px; }
 
-    .love-font {
-        font-size: 1.2em;
-        line-height: 1.5;
-        padding: 0 10px;
-    }
+    .love-font { font-size: 1.2em; line-height: 1.5; padding: 0 10px; }
 
     .surprise-container {
         flex-direction: column;
         text-align: center;
-        padding: 0 10px;
+        padding: 0;
+        gap: 10px;
     }
 
     .left-side, .right-side {
         flex: 0 0 100%;
         max-width: 100%;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .slideshow img {
-        max-width: 100%;
-        width: auto;
-    }
-}
-
-/* SURPRISE PAGE VERTICAL LAYOUT */
-.column-layout {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-}
-
-.column-layout .slideshow {
-    width: 80%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.column-layout .right-side.text-below {
-    text-align: center;
-    font-size: 1.4em;
-}
-
-@media (max-width: 480px) {
-    .surprise-container.column-layout {
         width: 100%;
-        padding: 0 10px;
+        max-width: none;
+        border-radius: 15px;
     }
 
-    .column-layout .slideshow {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .column-layout .right-side.text-below {
-        font-size: 1.2em;
-    }
+    .right-side p { font-size: 1.2em; }
+    #page6 button { margin-top:10px; }
 }
 </style>
 </head>
@@ -255,14 +221,14 @@ button {
 
 <!-- SURPRISE PAGE -->
 <div class="page" id="page6">
-    <h2>💖 Our Beautiful Amma 💖</h2>
+    <h2 style="margin-bottom:10px;">💖 Our Beautiful Amma 💖</h2>
 
-    <div class="surprise-container column-layout">
-        <div class="slideshow">
-            <img id="slideImage" src="mom.jpg">
+    <div class="surprise-container column-layout" style="padding:0; gap:10px;">
+        <div class="slideshow" style="width:100%; max-width:none;">
+            <img id="slideImage" src="mom.jpg" style="width:100%; border-radius:15px;">
         </div>
 
-        <div class="right-side love-font text-below">
+        <div class="right-side love-font text-below" style="text-align:center; font-size:1.2em; padding:0 10px;">
             <p>
                 Every smile of yours is our strength 💕<br><br>
                 Every hug of yours is our heaven 🥰<br><br>
@@ -273,7 +239,7 @@ button {
     </div>
 
     <audio id="bgMusic" src="music.mp3" loop></audio>
-    <button onclick="stopMusic(); goHome();">⬅ Back</button>
+    <button onclick="stopMusic(); goHome();" style="margin-top:10px;">⬅ Back</button>
 </div>
 
 <script>
