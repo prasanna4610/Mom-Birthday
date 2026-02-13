@@ -172,38 +172,39 @@ button {
     }
 }
 
-/* PHONE SPECIFIC PAGE 6 */
-@media (max-width: 480px) {
-    #page6 .surprise-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 10px;
-    }
+/* PAGE 6 FULL CENTERED */
+#page6 .page6-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+/* PHONE RESPONSIVE */
+@media (max-width: 480px) {
+    #page6 h2 {
+        font-size: 1.6em;
+    }
     #page6 .slideshow img {
         width: 90%;
-        max-width: 300px;
+        max-width: 250px;
         height: auto;
-        border-radius: 20px;
         margin-bottom: 15px;
-        box-shadow: 0 0 25px deeppink;
     }
-
-    #page6 .right-side p {
+    #page6 .love-font {
         font-size: 1.2em;
-        line-height: 1.5;
+        line-height: 1.4;
         padding: 0 10px;
         margin-bottom: 15px;
     }
-
     #page6 button {
-        width: 50%;
-        padding: 10px;
+        width: 60%;
         font-size: 1em;
-        margin-top: 10px;
+        padding: 10px;
     }
 }
+
 </style>
 </head>
 
@@ -268,27 +269,26 @@ button {
     <button onclick="goHome()">⬅ Back</button>
 </div>
 
-<!-- SURPRISE PAGE (PHONE FRIENDLY) -->
+<!-- SURPRISE PAGE (FULL CENTERED) -->
 <div class="page" id="page6">
-    <h2 style="margin-bottom: 20px;">💖 Our Beautiful Amma 💖</h2>
+    <h2>💖 Our Beautiful Amma 💖</h2>
 
-    <div class="surprise-container">
-        <div class="slideshow" style="margin-bottom: 20px;">
-            <img id="slideImage" src="mom.jpg">
+    <div class="page6-content" style="margin-top: 20px; text-align: center;">
+        <div class="slideshow">
+            <img id="slideImage" src="mom.jpg" style="width: 300px; max-width: 90%; border-radius: 20px; box-shadow: 0 0 25px deeppink; margin-bottom: 20px;">
         </div>
-        <div class="right-side love-font" style="text-align: center;">
-            <p>
-                Every smile of yours is our strength 💕<br><br>
-                Every hug of yours is our heaven 🥰<br><br>
-                You are our forever Queen Amma ❤️<br><br>
-                We are blessed to be your children 😘
-            </p>
-        </div>
+        <p class="love-font" style="font-size: 1.5em; line-height: 1.6; margin-bottom: 20px;">
+            Every smile of yours is our strength 💕<br><br>
+            Every hug of yours is our heaven 🥰<br><br>
+            You are our forever Queen Amma ❤️<br><br>
+            We are blessed to be your children 😘
+        </p>
+        <button onclick="stopMusic(); goHome();" style="padding: 12px 25px; font-size: 1em;">⬅ Back</button>
     </div>
 
     <audio id="bgMusic" src="music.mp3" loop></audio>
-    <button onclick="stopMusic(); goHome();" style="margin-top: 20px;">⬅ Back</button>
 </div>
+
 
 <script>
 /* PAGE SWITCH */
@@ -410,3 +410,4 @@ function stopMusic() {
 
 </body>
 </html>
+
