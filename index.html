@@ -4,51 +4,48 @@
 <meta charset="UTF-8">
 <title>Happy Birthday Mom</title>
 
+<!-- Google Font for Love-style font -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+/* BODY */
 body {
     margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
     text-align: center;
     color: #7a0000;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    overflow-x: hidden;
 }
 
 /* PAGE STYLE */
 .page {
     display: none;
-    height: 100vh;
     width: 100%;
+    min-height: 100vh;
     position: absolute;
     inset: 0;
-    justify-content: center;
+    justify-content: flex-start; /* top aligned */
     align-items: center;
     flex-direction: column;
-    padding: 40px 20px 100px;
+    padding: 20px 10px;
     box-sizing: border-box;
+    overflow-y: auto; /* scroll if content taller */
 }
 
 .active { display: flex; }
 
-/* POEM PAGE SCROLL */
-#page3 {
-    overflow: auto;
-    justify-content: flex-start;
-    padding-top: 0;
-}
+/* HEADINGS */
+h1 { font-size: 2em; text-align: center; margin:10px 0; }
+h2 { font-size: 1.4em; text-align: center; margin:8px 0; }
 
-h1 { font-size: 3em; margin:0 0 10px 0; }
-h2 { font-size: 2em; margin:0 0 15px 0; }
-
+/* BUTTONS */
 button {
-    padding: 15px 35px;
-    font-size: 1.2em;
+    padding: 10px 20px;
+    font-size: 1em;
+    margin: 8px;
     border: none;
     border-radius: 50px;
-    margin: 15px;
     cursor: pointer;
     background: white;
     color: #b3002d;
@@ -56,11 +53,55 @@ button {
 }
 
 @keyframes pulse {
-    0% { box-shadow: 0 0 10px pink; }
-    50% { box-shadow: 0 0 30px deeppink; }
-    100% { box-shadow: 0 0 10px pink; }
+    0% { box-shadow: 0 0 5px pink; }
+    50% { box-shadow: 0 0 15px deeppink; }
+    100% { box-shadow: 0 0 5px pink; }
 }
 
+/* POEM FONT */
+.love-font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.2em;
+    line-height: 1.5;
+    padding: 0 5px;
+    text-align: center;
+}
+
+/* MOM IMAGE */
+#momImage {
+    width: 120px;
+    border-radius: 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 15px pink;
+}
+
+/* SURPRISE PAGE (Page6) */
+.surprise-container {
+    display: flex;
+    flex-direction: column;  /* stacked for phone */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+.left-side, .right-side {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+}
+
+.slideshow img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px deeppink;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* FLOATING HEARTS */
 .heart {
     position: absolute;
     bottom: -20px;
@@ -73,88 +114,41 @@ button {
     to { transform: translateY(-100vh); opacity: 0; }
 }
 
-.love-font {
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.6em;
-    line-height: 1.8;
-}
+/* RUNAWAY BUTTON EFFECT ALREADY IN JS */
 
-#momImage {
-    width: 150px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 20px pink;
-}
-
-/* SURPRISE */
-.surprise-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 100%;
-    max-width: 1000px;
-}
-
-.left-side {
-    flex: 0 0 48%;
-    display: flex;
-    justify-content: center;
-}
-
-.right-side {
-    flex: 0 0 48%;
-    font-size: 1.5em;
-    text-align: left;
-}
-
-.slideshow img {
-    width: 100%;
-    max-width: 280px;
-    border-radius: 20px;
-    box-shadow: 0 0 25px deeppink;
-    transition: opacity 0.5s ease-in-out;
-}
-
-/* PHONE RESPONSIVE FOR ALL PAGES */
+/* PHONE RESPONSIVE */
 @media (max-width: 480px) {
-    body, .page { padding: 20px 10px 50px; }
-
-    h1 { font-size: 2em; margin-bottom:8px; }
-    h2 { font-size: 1.4em; margin-bottom:10px; }
+    h1 { font-size: 1.8em; }
+    h2 { font-size: 1.2em; }
 
     button {
-        padding: 10px 20px;
-        font-size: 1em;
-        margin: 8px;
+        padding: 8px 15px;
+        font-size: 0.9em;
+        margin: 6px;
     }
 
-    #momImage { width: 120px; margin-bottom: 15px; }
-
-    .love-font { font-size: 1.2em; line-height: 1.5; padding: 0 10px; }
+    .love-font { font-size: 1.1em; line-height: 1.4; padding: 0 5px; }
+    #momImage { width: 100px; margin: 8px 0; }
 
     .surprise-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 0;
-        gap: 10px;
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 0 !important;
+        gap: 10px !important;
     }
 
     .left-side, .right-side {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin-bottom: 10px;
+        flex: 0 0 100% !important;
+        width: 100% !important;
     }
 
     .slideshow img {
-        width: 100%;
-        max-width: none;
-        border-radius: 15px;
+        width: 100% !important;
+        height: auto !important;
     }
-
-    .right-side p { font-size: 1.2em; }
-    #page6 button { margin-top:10px; }
 }
+
+/* FINAL STYLING */
 </style>
 </head>
 
@@ -222,13 +216,11 @@ button {
 <!-- SURPRISE PAGE -->
 <div class="page" id="page6">
     <h2 style="margin-bottom:10px;">💖 Our Beautiful Amma 💖</h2>
-
-    <div class="surprise-container column-layout" style="padding:0; gap:10px;">
-        <div class="slideshow" style="width:100%; max-width:none;">
-            <img id="slideImage" src="mom.jpg" style="width:100%; border-radius:15px;">
+    <div class="surprise-container">
+        <div class="slideshow">
+            <img id="slideImage" src="mom.jpg">
         </div>
-
-        <div class="right-side love-font text-below" style="text-align:center; font-size:1.2em; padding:0 10px;">
+        <div class="right-side love-font">
             <p>
                 Every smile of yours is our strength 💕<br><br>
                 Every hug of yours is our heaven 🥰<br><br>
@@ -237,7 +229,6 @@ button {
             </p>
         </div>
     </div>
-
     <audio id="bgMusic" src="music.mp3" loop></audio>
     <button onclick="stopMusic(); goHome();" style="margin-top:10px;">⬅ Back</button>
 </div>
@@ -295,7 +286,6 @@ function typePoem() {
     el.innerHTML = "";
     let lineIndex = 0;
     let charIndex = 0;
-
     function typeChar() {
         if (lineIndex >= poemLines.length) return;
         if (charIndex < poemLines[lineIndex].length) {
@@ -313,17 +303,12 @@ function typePoem() {
 }
 
 /* SLIDESHOW */
-const images = [
-"mom.jpg","mom1.jpeg","mom2.jpg",
-"mom3.jpg","mom4.jpg","mom5.jpeg","mom6.jpg"
-];
-
+const images = ["mom.jpg","mom1.jpeg","mom2.jpg","mom3.jpg","mom4.jpg","mom5.jpeg","mom6.jpg"];
 let currentSlide = 0;
 let slideInterval = null;
 
 function openSurprise() {
     showPage("page6");
-
     const music = document.getElementById("bgMusic");
     music.currentTime = 0;
     music.play();
