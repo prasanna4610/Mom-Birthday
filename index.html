@@ -111,17 +111,35 @@ button {
 
 .slideshow img {
     width: 100%;
-    max-width: 100%; /* remove limit for large screens */
-    height: auto;    /* maintain aspect ratio */
+    max-width: 100%;
+    height: auto;
     border-radius: 20px;
     box-shadow: 0 0 25px deeppink;
     transition: opacity 0.5s ease-in-out;
 }
 
+/* COLUMN LAYOUT FOR VERTICAL SURPRISE PAGE */
+.column-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+}
+
+.column-layout .slideshow {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.column-layout .right-side.text-below {
+    text-align: center;
+    font-size: 1.4em;
+}
+
 /* PHONE RESPONSIVE */
 @media (max-width: 480px) {
     body {
-        overflow-y: auto; /* allow scrolling */
+        overflow-y: auto;
     }
 
     h1 { font-size: 2em; }
@@ -159,6 +177,10 @@ button {
     .slideshow img {
         width: 100%;
         height: auto;
+    }
+
+    .column-layout .slideshow {
+        max-width: 100%;
     }
 }
 </style>
@@ -229,14 +251,12 @@ button {
 <div class="page" id="page6">
     <h2>💖 Our Beautiful Amma 💖</h2>
 
-    <div class="surprise-container">
-        <div class="left-side">
-            <div class="slideshow">
-                <img id="slideImage" src="mom.jpg">
-            </div>
+    <div class="surprise-container column-layout">
+        <div class="slideshow">
+            <img id="slideImage" src="mom.jpg">
         </div>
 
-        <div class="right-side love-font">
+        <div class="right-side love-font text-below">
             <p>
                 Every smile of yours is our strength 💕<br><br>
                 Every hug of yours is our heaven 🥰<br><br>
