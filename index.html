@@ -129,8 +129,11 @@ button {
     }
 }
 
-/* PHONE RESPONSIVE */
 @media (max-width: 480px) {
+    body {
+        overflow-y: auto;  /* allow vertical scrolling */
+    }
+
     h1 { font-size: 2em; }
     h2 { font-size: 1.4em; }
 
@@ -151,22 +154,23 @@ button {
         padding: 0 10px;
     }
 
+    /* Stack surprise page vertically */
     .surprise-container {
-        flex-direction: column;
+        flex-direction: column !important;
         text-align: center;
         padding: 0 10px;
     }
 
     .left-side, .right-side {
-        flex: 0 0 100%;
+        flex: 0 0 100% !important;
         max-width: 100%;
         margin-bottom: 15px;
     }
 
-    /* Surprise page slideshow images */
+    /* Make slideshow image fill container */
     .surprise-container .slideshow {
         width: 100%;
-        max-width: 300px;
+        max-width: none;
         margin: 0 auto;
     }
 
@@ -182,6 +186,7 @@ button {
         margin-top: 15px;
     }
 }
+
 </style>
 </head>
 
@@ -383,3 +388,4 @@ function stopMusic() {
 
 </body>
 </html>
+
