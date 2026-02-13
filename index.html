@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Mom</title>
 
-<!-- Google Font for Love-style font -->
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    height: 100vh;
+    min-height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     font-family: 'Segoe UI', sans-serif;
     overflow: hidden;
@@ -102,6 +100,7 @@ button {
     flex: 0 0 48%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .right-side {
@@ -112,26 +111,17 @@ button {
 
 .slideshow img {
     width: 100%;
-    max-width: 280px;
+    max-width: 100%; /* remove limit for large screens */
+    height: auto;    /* maintain aspect ratio */
     border-radius: 20px;
     box-shadow: 0 0 25px deeppink;
     transition: opacity 0.5s ease-in-out;
 }
 
-/* TABLET RESPONSIVE */
-@media (max-width: 768px) {
-    .surprise-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .right-side {
-        text-align: center;
-    }
-}
-
+/* PHONE RESPONSIVE */
 @media (max-width: 480px) {
     body {
-        overflow-y: auto;  /* allow vertical scrolling */
+        overflow-y: auto; /* allow scrolling */
     }
 
     h1 { font-size: 2em; }
@@ -154,39 +144,23 @@ button {
         padding: 0 10px;
     }
 
-    /* Stack surprise page vertically */
     .surprise-container {
-        flex-direction: column !important;
+        flex-direction: column;
         text-align: center;
         padding: 0 10px;
     }
 
     .left-side, .right-side {
-        flex: 0 0 100% !important;
+        flex: 0 0 100%;
         max-width: 100%;
         margin-bottom: 15px;
     }
 
-    /* Make slideshow image fill container */
-    .surprise-container .slideshow {
-        width: 100%;
-        max-width: none;
-        margin: 0 auto;
-    }
-
-    .surprise-container .slideshow img {
+    .slideshow img {
         width: 100%;
         height: auto;
-        display: block;
-        border-radius: 20px;
-        box-shadow: 0 0 25px deeppink;
-    }
-
-    .right-side {
-        margin-top: 15px;
     }
 }
-
 </style>
 </head>
 
@@ -311,12 +285,12 @@ setInterval(() => {
 
 /* POEM */
 const poemLines = [
-"Karuvaraiyil theriyavillai en azhagu,",
-"Irunthum anbu koduthathu un manathu…",
-"Yaar nan enpathu theriyum munne...",
-"Enakkaga vazhndhathu nee allavaa…❤️",
-"",
-"Love You Mom 🩷"
+    "Karuvaraiyil theriyavillai en azhagu,",
+    "Irunthum anbu koduthathu un manathu…",
+    "Yaar nan enpathu theriyum munne...",
+    "Enakkaga vazhndhathu nee allavaa…❤️",
+    "",
+    "Love You Mom 🩷"
 ];
 
 function openWish1() {
@@ -347,17 +321,12 @@ function typePoem() {
 }
 
 /* SLIDESHOW */
-const images = [
-"mom.jpg","mom1.jpeg","mom2.jpg",
-"mom3.jpg","mom4.jpg","mom5.jpeg","mom6.jpg","mom7.jpg","mom8.jpg"
-];
-
+const images = ["mom.jpg","mom1.jpeg","mom2.jpg","mom3.jpg","mom4.jpg","mom5.jpeg","mom6.jpg"];
 let currentSlide = 0;
 let slideInterval = null;
 
 function openSurprise() {
     showPage("page6");
-
     const music = document.getElementById("bgMusic");
     music.currentTime = 0;
     music.play();
@@ -388,5 +357,3 @@ function stopMusic() {
 
 </body>
 </html>
-
-
