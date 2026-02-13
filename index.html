@@ -1,363 +1,371 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <title>Happy Birthday Mom</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Mom</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+<!-- Google Font for Love-style font -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-    body {
-        margin: 0;
-        height: 100vh;
-        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-        font-family: 'Segoe UI', sans-serif;
-        overflow: hidden;
-        text-align: center;
-        color: #7a0000;
-    }
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    text-align: center;
+    color: #7a0000;
+}
 
-    /* PAGE STYLE */
-    .page {
-        display: none;
-        height: 100vh;
-        width: 100%;
-        position: absolute;
-        inset: 0;
-        justify-content: center;
-        align-items: center;
+/* PAGE STYLE */
+.page {
+    display: none;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    inset: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 20px 100px;
+    box-sizing: border-box;
+}
+
+.active { display: flex; }
+
+/* POEM PAGE SCROLL */
+#page3 {
+    overflow: auto;
+    justify-content: flex-start;
+    padding-top: 0;
+}
+
+h1 { font-size: 3em; }
+h2 { font-size: 2em; }
+
+button {
+    padding: 15px 35px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    margin: 15px;
+    cursor: pointer;
+    background: white;
+    color: #b3002d;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px pink; }
+    50% { box-shadow: 0 0 30px deeppink; }
+    100% { box-shadow: 0 0 10px pink; }
+}
+
+.heart {
+    position: absolute;
+    bottom: -20px;
+    animation: floatUp linear infinite;
+    z-index: -1;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-100vh); opacity: 0; }
+}
+
+.love-font {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6em;
+    line-height: 1.8;
+}
+
+#momImage {
+    width: 150px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px pink;
+}
+
+/* SURPRISE */
+.surprise-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.left-side {
+    flex: 0 0 48%;
+    display: flex;
+    justify-content: center;
+}
+
+.right-side {
+    flex: 0 0 48%;
+    font-size: 1.5em;
+    text-align: left;
+}
+
+.slideshow img {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px deeppink;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* TABLET RESPONSIVE */
+@media (max-width: 768px) {
+    .surprise-container {
         flex-direction: column;
-        padding: 40px 20px 100px;
-        box-sizing: border-box;
+        text-align: center;
     }
-
-    .active { display: flex; }
-
-    /* POEM PAGE SCROLL */
-    #page3 {
-        overflow: auto;   /* remove scroll */
-        justify-content: flex-start;  /* center vertically */
-        padding-top: 0;
+    .right-side {
+        text-align: center;
     }
+}
 
-
-    h1 { font-size: 3em; }
-    h2 { font-size: 2em; }
+/* PHONE RESPONSIVE */
+@media (max-width: 480px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.4em; }
 
     button {
-        padding: 15px 35px;
-        font-size: 1.2em;
-        border: none;
-        border-radius: 50px;
-        margin: 15px;
-        cursor: pointer;
-        background: white;
-        color: #b3002d;
-        animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-        0% { box-shadow: 0 0 10px pink; }
-        50% { box-shadow: 0 0 30px deeppink; }
-        100% { box-shadow: 0 0 10px pink; }
-    }
-
-    .heart {
-        position: absolute;
-        bottom: -20px;
-        animation: floatUp linear infinite;
-        z-index: -1;
-    }
-
-    @keyframes floatUp {
-        from { transform: translateY(0); opacity: 1; }
-        to { transform: translateY(-100vh); opacity: 0; }
-    }
-
-    .love-font {
-        font-family: 'Dancing Script', cursive;
-        font-size: 1.6em;
-        line-height: 1.8;
+        padding: 10px 20px;
+        font-size: 1em;
+        margin: 10px;
     }
 
     #momImage {
-        width: 150px;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        box-shadow: 0 0 20px pink;
+        width: 120px;
+        margin-bottom: 15px;
     }
 
-    /* SURPRISE */
+    .love-font {
+        font-size: 1.2em;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+
     .surprise-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        max-width: 1000px;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 10px;
     }
 
-    .left-side {
-        flex: 0 0 48%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .right-side {
-        flex: 0 0 48%;
-        font-size: 1.5em;
-        text-align: left;
+    .left-side, .right-side {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
     }
 
     .slideshow img {
-        width: 100%;
-        max-width: 280px;
-        border-radius: 20px;
-        box-shadow: 0 0 25px deeppink;
-        transition: opacity 0.5s ease-in-out;
+        max-width: 100%;
+        width: auto;
     }
+}
+</style>
+</head>
 
-        /* PHONE RESPONSIVE */
-    @media (max-width: 480px) {
-        h1 { font-size: 2em; }
-        h2 { font-size: 1.4em; }
+<body>
 
-        button {
-            padding: 10px 20px;
-            font-size: 1em;
-            margin: 10px;
-        }
+<!-- HOME -->
+<div class="page active" id="page1">
+    <h1>Happy Birthday Mom ❤️</h1>
+    <button onclick="showPage('q1')">🤔 Question & Answer</button>
+    <button onclick="openWish1()">💐 Wishes</button>
+    <button onclick="openSurprise()">💖 More Wishes</button>
+</div>
 
-        #momImage {
-            width: 120px;
-            margin-bottom: 15px;
-        }
+<!-- QUESTION PAGES -->
+<div class="page" id="q1">
+    <h2>Adutha Jenmathula Nanga Unga Ponnugala Pirantha Ninge Accept Pannippingala?🙈</h2>
+    <button onclick="showPage('q2')">YES 😉👍</button>
+    <button onmouseover="runAway(event)">NO 👎😒</button>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-        .love-font {
-            font-size: 1.2em;
-            line-height: 1.5;
-            padding: 0 10px;
-        }
+<div class="page" id="q2">
+    <h2>Ninga oru Best Mom and Best Wife Nu Feel Pannirukkingala?🤗</h2>
+    <button onmouseover="runAway(event)">YES 😉👍</button>
+    <button onclick="showPage('q3')">NO 👎😒</button>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-        .surprise-container {
-            flex-direction: column;
-            text-align: center;
-            padding: 0 10px;
-        }
+<div class="page" id="q3">
+    <h2>Oru Nalla Amma and Nalla Wife ah irukkuratha Ninachi Proud ah Feel Pannuringala?😎</h2>
+    <button onmouseover="runAway(event)">YES 😉👍</button>
+    <button onclick="showPage('q4')">NO 👎😒</button>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-        .left-side, .right-side {
-            flex: 0 0 100%;
-            max-width: 100%;
-            margin-bottom: 15px;
-        }
+<div class="page" id="q4">
+    <h2>Appa vah Marupadiyum Marriage Pannuringala? 😉</h2>
+    <button onclick="showPage('q5')">YES 😉👍</button>
+    <button onmouseover="runAway(event)">NO 👎😒</button>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-        .slideshow img {
-            max-width: 100%;
-            width: auto;
-        }
-    }
-    </style>
-    </head>
+<div class="page" id="q5">
+    <h2>Nanga Ipo Marriage ku Ok Sonna Ninga Happy ah Feel Pannuvingala?🤔</h2>
+    <button onmouseover="runAway(event)">YES 😉👍</button>
+    <button onclick="showPage('page5')">NO 👎😒</button>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-    <body>
+<!-- FINAL FUN -->
+<div class="page" id="page5">
+    <h1>Just For Fun Moiii...</h1>
+    <h2>Happy Birthday Amma 🎂</h2>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-    <!-- HOME -->
-    <div class="page active" id="page1">
-        <h1>Happy Birthday Mom ❤️</h1>
-        <button onclick="showPage('q1')">🤔 Question & Answer</button>
-        <button onclick="openWish1()">💐 Wishes</button>
-        <button onclick="openSurprise()">💖 More Wishes</button>
-    </div>
+<!-- POEM PAGE -->
+<div class="page" id="page3">
+    <h2>Happy Birthday Amma 🩷</h2>
+    <img id="momImage" src="Mom.png">
+    <p id="poem" class="love-font"></p>
+    <button onclick="goHome()">⬅ Back</button>
+</div>
 
-    <!-- QUESTION PAGES -->
+<!-- SURPRISE PAGE -->
+<div class="page" id="page6">
+    <h2>💖 Our Beautiful Amma 💖</h2>
 
-    <div class="page" id="q1">
-        <h2>Adutha Jenmathula Nanga Unga Ponnugala Pirantha Ninge Accept Pannippingala?🙈</h2>
-        <button onclick="showPage('q2')">YES 😉👍</button>
-        <button onmouseover="runAway(event)">NO 👎😒</button>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <div class="page" id="q2">
-        <h2>Ninga oru Best Mom and Best Wife Nu Feel Pannirukkingala?🤗</h2>
-        <button onmouseover="runAway(event)">YES 😉👍</button>
-        <button onclick="showPage('q3')">NO 👎😒</button>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <div class="page" id="q3">
-        <h2>Oru Nalla Amma and Nalla Wife ah irukkuratha Ninachi Proud ah Feel Pannuringala?😎</h2>
-        <button onmouseover="runAway(event)">YES 😉👍</button>
-        <button onclick="showPage('q4')">NO 👎😒</button>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <div class="page" id="q4">
-        <h2>Appa vah Marupadiyum Marriage Pannuringala? 😉</h2>
-        <button onclick="showPage('q5')">YES 😉👍</button>
-        <button onmouseover="runAway(event)">NO 👎😒</button>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <div class="page" id="q5">
-        <h2>Nanga Ipo Marriage ku Ok Sonna Ninga Happy ah Feel Pannuvingala?🤔</h2>
-        <button onmouseover="runAway(event)">YES 😉👍</button>
-        <button onclick="showPage('page5')">NO 👎😒</button>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <!-- FINAL FUN -->
-    <div class="page" id="page5">
-        <h1>Just For Fun Moiii...</h1>
-        <h2>Happy Birthday Amma 🎂</h2>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <!-- POEM PAGE -->
-    <div class="page" id="page3">
-        <h2>Happy Birthday Amma 🩷</h2>
-        <img id="momImage" src="Mom.png">
-        <p id="poem" class="love-font"></p>
-        <button onclick="goHome()">⬅ Back</button>
-    </div>
-
-    <!-- SURPRISE PAGE -->
-    <div class="page" id="page6">
-        <h2>💖 Our Beautiful Amma 💖</h2>
-
-        <div class="surprise-container">
-            <div class="left-side">
-                <div class="slideshow">
-                    <img id="slideImage" src="mom.jpg">
-                </div>
-            </div>
-
-            <div class="right-side love-font">
-                <p>
-                    Every smile of yours is our strength 💕<br><br>
-                    Every hug of yours is our heaven 🥰<br><br>
-                    You are our forever Queen Amma ❤️<br><br>
-                    We are blessed to be your children 😘
-                </p>
+    <div class="surprise-container">
+        <div class="left-side">
+            <div class="slideshow">
+                <img id="slideImage" src="mom.jpg">
             </div>
         </div>
 
-        <audio id="bgMusic" src="music.mp3" loop></audio>
-        <button onclick="stopMusic(); goHome();">⬅ Back</button>
+        <div class="right-side love-font">
+            <p>
+                Every smile of yours is our strength 💕<br><br>
+                Every hug of yours is our heaven 🥰<br><br>
+                You are our forever Queen Amma ❤️<br><br>
+                We are blessed to be your children 😘
+            </p>
+        </div>
     </div>
 
-    <script>
+    <audio id="bgMusic" src="music.mp3" loop></audio>
+    <button onclick="stopMusic(); goHome();">⬅ Back</button>
+</div>
 
-    /* PAGE SWITCH */
-    function showPage(id) {
-        document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-        document.getElementById(id).classList.add("active");
-    }
+<script>
+/* PAGE SWITCH */
+function showPage(id) {
+    document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
 
-    /* BACK */
-    function goHome() {
-        stopMusic();
-        showPage("page1");
-    }
+/* BACK */
+function goHome() {
+    stopMusic();
+    showPage("page1");
+}
 
-    /* RUN AWAY BUTTON */
-    function runAway(e) {
-        const btn = e.target;
-        btn.style.position = "absolute";
-        btn.style.left = Math.random() * (window.innerWidth - 150) + "px";
-        btn.style.top = Math.random() * (window.innerHeight - 150) + "px";
-    }
+/* RUN AWAY BUTTON */
+function runAway(e) {
+    const btn = e.target;
+    btn.style.position = "absolute";
+    btn.style.left = Math.random() * (window.innerWidth - 150) + "px";
+    btn.style.top = Math.random() * (window.innerHeight - 150) + "px";
+}
 
-    /* FLOATING HEARTS */
-    setInterval(() => {
-        const h = document.createElement("div");
-        h.className = "heart";
-        h.innerHTML = "❤️";
-        h.style.left = Math.random() * 100 + "vw";
-        h.style.fontSize = (Math.random() * 20 + 15) + "px";
-        h.style.animationDuration = (Math.random() * 5 + 4) + "s";
-        document.body.appendChild(h);
-        setTimeout(() => h.remove(), 9000);
-    }, 300);
+/* FLOATING HEARTS */
+setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.fontSize = (Math.random() * 20 + 15) + "px";
+    h.style.animationDuration = (Math.random() * 5 + 4) + "s";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 9000);
+}, 300);
 
-    /* POEM */
-    const poemLines = [
-    "Karuvaraiyil theriyavillai en azhagu,",
-    "Irunthum anbu koduthathu un manathu…",
-    "Yaar nan enpathu theriyum munne...",
-    "Enakkaga vazhndhathu nee allavaa…❤️",
-    "",
-    "Love You Mom 🩷"
-    ];
+/* POEM */
+const poemLines = [
+"Karuvaraiyil theriyavillai en azhagu,",
+"Irunthum anbu koduthathu un manathu…",
+"Yaar nan enpathu theriyum munne...",
+"Enakkaga vazhndhathu nee allavaa…❤️",
+"",
+"Love You Mom 🩷"
+];
 
-    function openWish1() {
-        showPage("page3");
-        typePoem();
-    }
+function openWish1() {
+    showPage("page3");
+    typePoem();
+}
 
-    function typePoem() {
-        const el = document.getElementById("poem");
-        el.innerHTML = "";
-        let lineIndex = 0;
-        let charIndex = 0;
+function typePoem() {
+    const el = document.getElementById("poem");
+    el.innerHTML = "";
+    let lineIndex = 0;
+    let charIndex = 0;
 
-        function typeChar() {
-            if (lineIndex >= poemLines.length) return;
-            if (charIndex < poemLines[lineIndex].length) {
-                el.innerHTML += poemLines[lineIndex][charIndex];
-                charIndex++;
-                setTimeout(typeChar, 70);
-            } else {
-                el.innerHTML += "<br>";
-                lineIndex++;
-                charIndex = 0;
-                setTimeout(typeChar, 70);
-            }
+    function typeChar() {
+        if (lineIndex >= poemLines.length) return;
+        if (charIndex < poemLines[lineIndex].length) {
+            el.innerHTML += poemLines[lineIndex][charIndex];
+            charIndex++;
+            setTimeout(typeChar, 70);
+        } else {
+            el.innerHTML += "<br>";
+            lineIndex++;
+            charIndex = 0;
+            setTimeout(typeChar, 70);
         }
-        typeChar();
     }
+    typeChar();
+}
 
-    /* SLIDESHOW */
-    const images = [
-    "mom.jpg","mom1.jpeg","mom2.jpg",
-    "mom3.jpg","mom4.jpg","mom5.jpeg","mom6.jpg"
-    ];
+/* SLIDESHOW */
+const images = [
+"mom.jpg","mom1.jpeg","mom2.jpg",
+"mom3.jpg","mom4.jpg","mom5.jpeg","mom6.jpg"
+];
 
-    let currentSlide = 0;
-    let slideInterval = null;
+let currentSlide = 0;
+let slideInterval = null;
 
-    function openSurprise() {
-        showPage("page6");
+function openSurprise() {
+    showPage("page6");
 
-        const music = document.getElementById("bgMusic");
-        music.currentTime = 0;
-        music.play();
+    const music = document.getElementById("bgMusic");
+    music.currentTime = 0;
+    music.play();
 
-        const img = document.getElementById("slideImage");
-        currentSlide = 0;
-        img.src = images[currentSlide];
+    const img = document.getElementById("slideImage");
+    currentSlide = 0;
+    img.src = images[currentSlide];
 
-        if (slideInterval) clearInterval(slideInterval);
+    if (slideInterval) clearInterval(slideInterval);
 
-        slideInterval = setInterval(() => {
-            img.style.opacity = 0;
-            setTimeout(() => {
-                currentSlide = (currentSlide + 1) % images.length;
-                img.src = images[currentSlide];
-                img.style.opacity = 1;
-            }, 400);
-        }, 3000);
-    }
+    slideInterval = setInterval(() => {
+        img.style.opacity = 0;
+        setTimeout(() => {
+            currentSlide = (currentSlide + 1) % images.length;
+            img.src = images[currentSlide];
+            img.style.opacity = 1;
+        }, 400);
+    }, 3000);
+}
 
-    function stopMusic() {
-        const music = document.getElementById("bgMusic");
-        music.pause();
-        music.currentTime = 0;
-        if (slideInterval) clearInterval(slideInterval);
-    }
+function stopMusic() {
+    const music = document.getElementById("bgMusic");
+    music.pause();
+    music.currentTime = 0;
+    if (slideInterval) clearInterval(slideInterval);
+}
+</script>
 
-    </script>
-
-    </body>
-    </html>
-
+</body>
+</html>
