@@ -117,13 +117,43 @@
         transition: opacity 0.5s ease-in-out;
     }
 
-    @media (max-width: 768px) {
+        /* PHONE RESPONSIVE */
+    @media (max-width: 480px) {
+        h1 { font-size: 2em; }
+        h2 { font-size: 1.4em; }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            margin: 10px;
+        }
+
+        #momImage {
+            width: 120px;
+            margin-bottom: 15px;
+        }
+
+        .love-font {
+            font-size: 1.2em;
+            line-height: 1.5;
+            padding: 0 10px;
+        }
+
         .surprise-container {
             flex-direction: column;
             text-align: center;
+            padding: 0 10px;
         }
-        .right-side {
-            text-align: center;
+
+        .left-side, .right-side {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .slideshow img {
+            max-width: 100%;
+            width: auto;
         }
     }
     </style>
@@ -330,3 +360,4 @@
 
     </body>
     </html>
+
